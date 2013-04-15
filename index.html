@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Trabajo SDI - Grupo 6</title>
+
+		<meta name="description" content="Trabajo de mejoras de seguridad en Sistemas Distribuidos e Internet">
+		<meta name="author" content="Alvaro, Eduardo y Herminio">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Mejoras de seguridad</h1>
+					<h2>Sistemas Distribuidos e Internet</h2>
+					<br><br>
+					<p align='right'>
+						<small>Una creación de:
+							 <br><a href="mailto:uo218732@uniovi.es">Álvaro Alonso Palacio - UO218732</a>
+							  <br><a href="mailto:uo2221513@uniovi.es">Eduardo Parrado Puente - UO221513</a>
+							 <br><a href="mailto:uo218768@uniovi.es">Herminio García González - UO218768</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Objetivo</h2>
+					<p>
+						Mejorar la seguridad contra posibles ataques que antes no se habían contemplado
+					</p>
+
+					<aside class="notes">
+						Aquí se hablaría del objetivo del trabajo y los métodos para esas mejoras
+					</aside>
+				</section>
+				<section>
+						<h1>Posibles ataques</h1>
+					</section>
+				<section>
+					<section>
+						<h3>Sql Injection</h3>
+						<br>
+						<p>String consulta = "Select * from Users where username='"+ userInput +"' and password='"+ passInput +"'; </p>
+						<br>
+						<p>¿Y si inyectamos un poco de SQL?</p>
+						String userInput = ' OR 1=1; --
+					</section>
+					<section>
+						<h3>Resultado: Suplantación de identidad</h3>
+							<img width="280" height="326" src="images/robo-identidad.jpg" alt="Imagen suplantacion de indentidad"/>
+						<p>Select * from Users where username=' ' <strong>OR 1=1; --</strong> ' and password='miclave'</p>
+					</section>
+					<section>
+						<h3>Otros posibles usos</h3>
+						<ul>
+							<li>Entrar como administrador -> <strong>admin'; --</strong></li>
+							<li>Borrado de datos -> <strong>'DROP TABLE USERS; --</strong> </li>
+						</ul>
+					</section>
+					<section>
+						<h3>Solución</h3>
+						<br>
+						<p>Uso de PreparedStatement en Java</p>
+						<br>
+						<p>Select * from user where username = <strong>?</strong> and password = <strong>?</strong></p>
+					</section>
+				</section>
+
+					<!-- Se seguirían poniendo diapositivas aquí
+					Para más ejemplos mirar el repositorio reveal.js en github -->
+					<!-- La estructura no es fija en cuanto a apartados se pueden variar, además para habría que poner alguna demostración para rellenar tiempo -->
+				
+				<section>
+					<h1>Fin</h1>
+					<h2>Gracias por su atención</h2>
+					<img src="images/security_man.gif" alt="animacion agente seguridad">
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
