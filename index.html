@@ -55,18 +55,83 @@
 					<p>
 						Mejorar la seguridad contra posibles ataques que antes no se habían contemplado
 					</p>
-
 					<aside class="notes">
 						Aquí se hablaría del objetivo del trabajo y los métodos para esas mejoras
 					</aside>
 				</section>
 				<section>
 						<h1>Posibles ataques</h1>
-					</section>
+				</section>
 				<section>
 					<section>
-						<h3>Sql Injection</h3>
+						<h2>Autenticación insuficiente</h2>
+						<p>Acciones para las que el usuario no tiene privilegios, pero que por medio de un atajo puede hacer</p>
+					</section>
+					<section>
+						<h2>Ejemplo</h2>
+						<p>En este ejemplo vamos a coger la pantalla de edición de un mensaje, en principio sólo el usuario que escribio ese
+							mensaje debería poder acceder a él.</p>
+						<img src="images/Prueba_autenticacion.png" alt="Vista de edición de mensaje"/>
+					</section>
+					<section>
+						<h2>Resultado</h2>
+						<p>Vemos como en otro navegador que no comparte las mismas cookies se puede acceder a la edición del mensaje sin ningún problema</p>
+						<img src="images/Resultado_autenticacion.png" alt="Vista de edición de mensaje"/>
+					</section>
+					<section>
+						<h2>Solución</h2>
+						<p>La solución a este problema es la comprobación de que las acciones que no se pueden ejecutar por otros usuarios
+						 esten bien autenticadas</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Html Injection</h3>
 						<br>
+						<p>TO DO</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>XSS</h2>
+						<h3>Cross Site Scripting</h3>
+						<br />
+						<p>Inyección de código de scripting para que sea ejecutado por el navegador del cliente</p>
+					</section>
+					<section>
+						<h3>Dos tipos</h3>
+						<ul>
+							<li>Reflejado: Cuando este es pasado como un parámetro entre diferentes vistas</li>
+							<li>Persistente: Cuando este queda guardado en una base de datos y siempre va a ejecutarse</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Ejemplo</h3>
+						<p> Vamos a usar XSS de tipo persistente en el foro para ver la información de las cookies </p>
+						<img src="images/XSS_Intento.png" alt="Haciendo XSS en MyForums"/>
+					</section>
+					<section>
+						<h3>Resultado</h3>
+						<p>El resultado puede no parecer maligno pero podríamos usar esta prueba para hacer ataques más sofisticados</p>
+						<img src="images/XSS_Resultado.png" alt="Viendo el resultado del XSS en MyForums"/>
+					</section>
+					<section>
+						<h3>Solución</h3>
+						<ul>
+							<li>Filtrar los datos de entrada, sobre todo los que contengan < ó > </li>
+							<li>Para formatear texto usar otros recursos que no sean código html</li>
+							<li>Uso de librerías anti-XSS</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Sql Injection</h2>
+						<br />
+						<p>Inyección de código SQL de manera que las consultas muestren datos que no deberían</p>
+					</section>
+					<section>
+						<h3>Ejemplo</h3>
 						<p>String consulta = "Select * from Users where username='"+ userInput +"' and password='"+ passInput +"'; </p>
 						<br>
 						<p>¿Y si inyectamos un poco de SQL?</p>
@@ -75,7 +140,7 @@
 					<section>
 						<h3>Resultado: Suplantación de identidad</h3>
 							<img width="280" height="326" src="images/robo-identidad.jpg" alt="Imagen suplantacion de indentidad"/>
-						<p>Select * from Users where username=' ' <strong>OR 1=1; --</strong> ' and password='miclave'</p>
+						<p class="fragment highlight-red" data-fragment-index="1">Select * from Users where username=' 'OR 1=1; </p> --' and password='miclave'
 					</section>
 					<section>
 						<h3>Otros posibles usos</h3>
@@ -92,10 +157,11 @@
 						<p>Select * from user where username = <strong>?</strong> and password = <strong>?</strong></p>
 					</section>
 				</section>
+				
 
 					<!-- Se seguirían poniendo diapositivas aquí
 					Para más ejemplos mirar el repositorio reveal.js en github -->
-					<!-- La estructura no es fija en cuanto a apartados se pueden variar, además para habría que poner alguna demostración para rellenar tiempo -->
+					<!-- La estructura no es fija en cuanto a apartados se pueden variar, además habría que poner alguna demostración para rellenar tiempo -->
 				
 				<section>
 					<h1>Fin</h1>
