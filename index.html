@@ -124,6 +124,32 @@
 						</ul>
 					</section>
 				</section>
+                <section>
+					<section>
+						<h2>Sniffing</h2>
+						<br />
+						<p>Escuchas ilegalaes de la red</p>
+					</section>
+					<section>
+						<h3>Ejemplo</h3>
+						<p> Vamos a ver un ejemplo de Sniffing en el foro. Nos registraremos cómo administrador y después utilizaremos un programa de escucha, a ver que pasa.  </p>
+						<img src="images/Sniffing1.png" alt="Logueando como admin"/>
+					</section>
+					<section>
+						<h3>Resultado</h3>
+						<p>Como podemos comprobar no tenemon ningún problema en hacernos con la contraseña del administrador.</p>
+						<img src="images/Sniffing2.png" alt="Resultado Sniffing"/>
+					</section>
+					<section>
+						<h3>Solución</h3>
+						<ul>
+							<li>Utilizar cifrado en la comunicación </li>
+                            <li>Falta por completar </li>
+
+							
+						</ul>
+					</section>
+				</section>
 				<section>
 					<section>
 						<h2>Sql Injection</h2>
@@ -157,7 +183,36 @@
 						<p>Select * from user where username = <strong>?</strong> and password = <strong>?</strong></p>
 					</section>
 				</section>
-				
+				<section>
+					<section>
+						<h2>CSRF</h2>
+						<h3>Cross Site Request Forgery</h3>
+						<br />
+						<p>Forzar o engañar a un usuario autentificado a realizar acciones que no desea</p>
+					</section>
+					<section>
+						<h3>Ejemplo</h3>
+						<p>	Lori envía una aparentemente inofensiva imágen al Administrador haciendo uso de los mensajes del foro</p><img src="images/CSRF1.png" alt="CSRF"/>
+					</section>
+					<section>
+						<h3>Resultado</h3>
+						<p>El Administrador, un poco ingenuo, hace click en la imagen. Pero... ¡No es oro todo lo que reluce! </p>
+						<img src="images/CSRF2.png" alt="CSRF"/>
+					</section>
+					<section>
+						<h3>Consecuencia</h3>
+						<p>El administrador sin saberlo, y puede que no se haya dado cuenta, ha desactivado la cuenta de Rick. </p>
+                        <p>A Lori no le caía bien Rick :( </p>
+					</section>
+					<section>
+						<h3>Solución</h3>
+						<ul>
+							<li>Uso de librerias para intentar mitigar los ataques CSRF</li>
+							<li>Ejemplo: <a href="https://github.com/esheri3/OWASP-CSRFGuard">OWASP CSRFGuard 3.0 </a></li>
+					
+						</ul>
+					</section>
+				</section>
 
 					<!-- Se seguirían poniendo diapositivas aquí
 					Para más ejemplos mirar el repositorio reveal.js en github -->
