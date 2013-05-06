@@ -158,7 +158,7 @@
 					<section>
 						<h2>Sniffing</h2>
 						<br />
-						<p>Escuchas ilegalaes de la red</p>
+						<p>Escuchas ilegales de la red</p>
 					</section>
 					<section>
 						<h3>Ejemplo</h3>
@@ -167,17 +167,16 @@
 					</section>
 					<section>
 						<h3>Resultado</h3>
-						<p>Como podemos comprobar no tenemon ningún problema en hacernos con la contraseña del administrador.</p>
+						<p>Como podemos comprobar no tenemos ningún problema en hacernos con la contraseña del administrador.</p>
 						<img src="images/Sniffing2.png" alt="Resultado Sniffing"/>
 					</section>
 					<section>
 						<h3>Solución</h3>
-						<ul>
-							<li>Utilizar cifrado en la comunicación </li>
-                            <li>Falta por completar </li>
-
-
-						</ul>
+						La solución principal pasa por cifrar la conexión:
+						<br />
+						<strong><center>Https con SSL/TLS</center></strong>
+						<br />
+						Los datos viajarán cifrados con este protocolo
 					</section>
 				</section>
 				<section>
@@ -241,6 +240,39 @@
 							<li>Ejemplo: <a href="https://github.com/esheri3/OWASP-CSRFGuard">OWASP CSRFGuard 3.0 </a></li>
 
 						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Buenas prácticas</h1>
+					</section>
+					<section>
+						<h3>Logs</h3>
+						<p>	El uso de librerías de logs es altamente recomendado. Nos permiten saber la interacción de los usuarios con el sistema, además de los errores que se puedan haber producido: </P>
+						<br />
+						<ul>
+							<li>Simple Logging Facade for Java (SLF4J)</li>
+							<li>Apache log4j</li>
+							<li>java.util.logging</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Quitar mensajes de error informativos</h3>
+						<p> No se debe mostrar más información de la necesaria, por lo tanto los errores descriptivos no deberían ser mostrados al usuario </p>
+						<img src="images/errorDescriptivo.png" alt="Web con errores de sqlite" />
+					</section>
+					<section>
+						<h3>Quitar u ocultar archivos que no deberían ser accedidos</h3>
+						<p> Archivos como configuraciones de la base de datos, logs u otros archivos de configuración no deberían poder ser accedidos
+						para ello se deben sacar fuera del directorio de la web u ocultarlos. </p>
+					</section>
+					<section>
+						<h3>Ocultación de rutas privadas</h3>
+						<p>Puede interesarnos que ciertos rutas no salgan en los buscadores: </p>
+                        <p>Ficheros como robots.txt nos permite que los buscadores no indexen estas páginas: <a href="http://www.epigijon.uniovi.es/robots.txt">
+                        	Robots.txt EpiGijón</a> </p>
+                       	<br />
+                        <p class="fragment roll-in visible" style="color: red">¡CUIDADO! Esto no hace que no se pueda entrar, por lo tanto no nos exime de tomar medidas de seguridad complementarias</p>
 					</section>
 				</section>
 
