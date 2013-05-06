@@ -42,10 +42,10 @@
 					<h2>Sistemas Distribuidos e Internet</h2>
 					<br><br>
 					<p align='right'>
-						<small>Una creaci√≥n de:
-							 <br><a href="mailto:uo218732@uniovi.es">√Ålvaro Alonso Palacio - UO218732</a>
+						<small>Una creaciÛn de:
+							 <br><a href="mailto:uo218732@uniovi.es">¡lvaro Alonso Palacio - UO218732</a>
 							  <br><a href="mailto:uo2221513@uniovi.es">Eduardo Parrado Puente - UO221513</a>
-							 <br><a href="mailto:uo218768@uniovi.es">Herminio Garc√≠a Gonz√°lez - UO218768</a>
+							 <br><a href="mailto:uo218768@uniovi.es">Herminio GarcÌa Gonz·lez - UO218768</a>
 						</small>
 					</p>
 				</section>
@@ -53,10 +53,10 @@
 				<section>
 					<h2>Objetivo</h2>
 					<p>
-						Mejorar la seguridad contra posibles ataques que antes no se hab√≠an contemplado
+						Mejorar la seguridad contra posibles ataques que antes no se habÌan contemplado
 					</p>
 					<aside class="notes">
-						Aqu√≠ se hablar√≠a del objetivo del trabajo y los m√©todos para esas mejoras
+						AquÌ se hablarÌa del objetivo del trabajo y los mÈtodos para esas mejoras
 					</aside>
 				</section>
 				<section>
@@ -64,63 +64,93 @@
 				</section>
 				<section>
 					<section>
-						<h2>Autenticaci√≥n insuficiente</h2>
+						<h2>AutenticaciÛn insuficiente</h2>
 						<p>Acciones para las que el usuario no tiene privilegios, pero que por medio de un atajo puede hacer</p>
 					</section>
 					<section>
 						<h2>Ejemplo</h2>
-						<p>En este ejemplo vamos a coger la pantalla de edici√≥n de un mensaje, en principio s√≥lo el usuario que escribio ese
-							mensaje deber√≠a poder acceder a √©l.</p>
-						<img src="images/Prueba_autenticacion.png" alt="Vista de edici√≥n de mensaje"/>
+						<p>En este ejemplo vamos a coger la pantalla de ediciÛn de un mensaje, en principio sÛlo el usuario que escribio ese
+							mensaje deberÌa poder acceder a Èl.</p>
+						<img src="images/Prueba_autenticacion.png" alt="Vista de ediciÛn de mensaje"/>
 					</section>
 					<section>
 						<h2>Resultado</h2>
-						<p>Vemos como en otro navegador que no comparte las mismas cookies se puede acceder a la edici√≥n del mensaje sin ning√∫n problema</p>
-						<img src="images/Resultado_autenticacion.png" alt="Vista de edici√≥n de mensaje"/>
+						<p>Vemos como en otro navegador que no comparte las mismas cookies se puede acceder a la ediciÛn del mensaje sin ning˙n problema</p>
+						<img src="images/Resultado_autenticacion.png" alt="Vista de ediciÛn de mensaje"/>
 					</section>
 					<section>
-						<h2>Soluci√≥n</h2>
-						<p>La soluci√≥n a este problema es la comprobaci√≥n de que las acciones que no se pueden ejecutar por otros usuarios
+						<h2>SoluciÛn</h2>
+						<p>La soluciÛn a este problema es la comprobaciÛn de que las acciones que no se pueden ejecutar por otros usuarios
 						 esten bien autenticadas</p>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h3>Html Injection</h3>
+						<h2>Html Injection</h2>
 						<br>
-						<p>TO DO</p>
-					</section>
+						<p>InyecciÛn de cÛdigo HTML dentro de una p·gina de tal
+						modo que este sea ejecutado como tal</p>
+						</section>
+						<section>
+						<h3>øPor quÈ puede suceder?</h3>
+						<p>Una mala gestiÛn de las etiquetas HTML dentro de una p·gina web que
+						afecten a campos donde sea posible introducir texto</p>
+						</section>
+						<section>
+						<h3>Pongamos un ejemplo sencillo</h3>
+						<p>Supongamos que encontramos un foro y queremos verificar si es vulnerable ante este tipo de ataques,
+						una forma es  introducir una sencilla lÌnea HTML</p>
+						<img src="images/htmlI.png" alt="Vista de inyecciÛn en foro"/>
+						</section>
+						<section>
+						<h3>…xito</h3>
+						<p>Si nos apareciera el mensaje como en este caso el sitio serÌa vulnerable</p>
+						<img src="images/htmlI2.png" alt="Vista de exito de inyeccion"/>
+						</section>
+						<section>
+						<h3>Ataques mas serios</h3>
+						<p>El HTMLi no solo sirve para cambiar el entorno visual de la p·gina
+						ya que podemos introducir scripts y dem·s, en una peticion POST, por ejemplo.</p>
+						<img src="images/htmlI3.png" alt="Vista de exito de inyeccion"/>
+						</section>
+						<section>
+						<h3>Soluciones</h3>
+						<p>Dos formas sencillas de evitar esto es eliminando y/o desactivando las etiquetas</p>
+						<p>strip_tags() = Elimina las etiquetas</p>
+						<p>htmlentities() = Obtiene las etiquetas de la inyeccion pero no las ejecuta</p> 
+						</section>
+					
 				</section>
 				<section>
 					<section>
 						<h2>XSS</h2>
 						<h3>Cross Site Scripting</h3>
 						<br />
-						<p>Inyecci√≥n de c√≥digo de scripting para que sea ejecutado por el navegador del cliente</p>
+						<p>InyecciÛn de cÛdigo de scripting para que sea ejecutado por el navegador del cliente</p>
 					</section>
 					<section>
 						<h3>Dos tipos</h3>
 						<ul>
-							<li>Reflejado: Cuando este es pasado como un par√°metro entre diferentes vistas</li>
+							<li>Reflejado: Cuando este es pasado como un par·metro entre diferentes vistas</li>
 							<li>Persistente: Cuando este queda guardado en una base de datos y siempre va a ejecutarse</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Ejemplo</h3>
-						<p> Vamos a usar XSS de tipo persistente en el foro para ver la informaci√≥n de las cookies </p>
+						<p> Vamos a usar XSS de tipo persistente en el foro para ver la informaciÛn de las cookies </p>
 						<img src="images/XSS_Intento.png" alt="Haciendo XSS en MyForums"/>
 					</section>
 					<section>
 						<h3>Resultado</h3>
-						<p>El resultado puede no parecer maligno pero podr√≠amos usar esta prueba para hacer ataques m√°s sofisticados</p>
+						<p>El resultado puede no parecer maligno pero podrÌamos usar esta prueba para hacer ataques m·s sofisticados</p>
 						<img src="images/XSS_Resultado.png" alt="Viendo el resultado del XSS en MyForums"/>
 					</section>
 					<section>
-						<h3>Soluci√≥n</h3>
+						<h3>SoluciÛn</h3>
 						<ul>
-							<li>Filtrar los datos de entrada, sobre todo los que contengan < √≥ > </li>
-							<li>Para formatear texto usar otros recursos que no sean c√≥digo html</li>
-							<li>Uso de librer√≠as anti-XSS</li>
+							<li>Filtrar los datos de entrada, sobre todo los que contengan < Û > </li>
+							<li>Para formatear texto usar otros recursos que no sean cÛdigo html</li>
+							<li>Uso de librerÌas anti-XSS</li>
 						</ul>
 					</section>
 				</section>
@@ -132,21 +162,21 @@
 					</section>
 					<section>
 						<h3>Ejemplo</h3>
-						<p> Vamos a ver un ejemplo de Sniffing en el foro. Nos registraremos c√≥mo administrador y despu√©s utilizaremos un programa de escucha, a ver que pasa.  </p>
+						<p> Vamos a ver un ejemplo de Sniffing en el foro. Nos registraremos cÛmo administrador y despuÈs utilizaremos un programa de escucha, a ver que pasa.  </p>
 						<img src="images/Sniffing1.png" alt="Logueando como admin"/>
 					</section>
 					<section>
 						<h3>Resultado</h3>
-						<p>Como podemos comprobar no tenemon ning√∫n problema en hacernos con la contrase√±a del administrador.</p>
+						<p>Como podemos comprobar no tenemon ning˙n problema en hacernos con la contraseÒa del administrador.</p>
 						<img src="images/Sniffing2.png" alt="Resultado Sniffing"/>
 					</section>
 					<section>
-						<h3>Soluci√≥n</h3>
+						<h3>SoluciÛn</h3>
 						<ul>
-							<li>Utilizar cifrado en la comunicaci√≥n </li>
+							<li>Utilizar cifrado en la comunicaciÛn </li>
                             <li>Falta por completar </li>
 
-							
+
 						</ul>
 					</section>
 				</section>
@@ -154,17 +184,17 @@
 					<section>
 						<h2>Sql Injection</h2>
 						<br />
-						<p>Inyecci√≥n de c√≥digo SQL de manera que las consultas muestren datos que no deber√≠an</p>
+						<p>InyecciÛn de cÛdigo SQL de manera que las consultas muestren datos que no deberÌan</p>
 					</section>
 					<section>
 						<h3>Ejemplo</h3>
 						<p>String consulta = "Select * from Users where username='"+ userInput +"' and password='"+ passInput +"'; </p>
 						<br>
-						<p>¬øY si inyectamos un poco de SQL?</p>
+						<p>øY si inyectamos un poco de SQL?</p>
 						String userInput = ' OR 1=1; --
 					</section>
 					<section>
-						<h3>Resultado: Suplantaci√≥n de identidad</h3>
+						<h3>Resultado: SuplantaciÛn de identidad</h3>
 							<img width="280" height="326" src="images/robo-identidad.jpg" alt="Imagen suplantacion de indentidad"/>
 						<p class="fragment highlight-red" data-fragment-index="1">Select * from Users where username=' 'OR 1=1; </p> --' and password='miclave'
 					</section>
@@ -176,7 +206,7 @@
 						</ul>
 					</section>
 					<section>
-						<h3>Soluci√≥n</h3>
+						<h3>SoluciÛn</h3>
 						<br>
 						<p>Uso de PreparedStatement en Java</p>
 						<br>
@@ -188,39 +218,39 @@
 						<h2>CSRF</h2>
 						<h3>Cross Site Request Forgery</h3>
 						<br />
-						<p>Forzar o enga√±ar a un usuario autentificado a realizar acciones que no desea</p>
+						<p>Forzar o engaÒar a un usuario autentificado a realizar acciones que no desea</p>
 					</section>
 					<section>
 						<h3>Ejemplo</h3>
-						<p>	Lori env√≠a una aparentemente inofensiva im√°gen al Administrador haciendo uso de los mensajes del foro</p><img src="images/CSRF1.png" alt="CSRF"/>
+						<p>	Lori envÌa una aparentemente inofensiva im·gen al Administrador haciendo uso de los mensajes del foro</p><img src="images/CSRF1.png" alt="CSRF"/>
 					</section>
 					<section>
 						<h3>Resultado</h3>
-						<p>El Administrador, un poco ingenuo, hace click en la imagen. Pero... ¬°No es oro todo lo que reluce! </p>
+						<p>El Administrador, un poco ingenuo, hace click en la imagen. Pero... °No es oro todo lo que reluce! </p>
 						<img src="images/CSRF2.png" alt="CSRF"/>
 					</section>
 					<section>
 						<h3>Consecuencia</h3>
 						<p>El administrador sin saberlo, y puede que no se haya dado cuenta, ha desactivado la cuenta de Rick. </p>
-                        <p>A Lori no le ca√≠a bien Rick :( </p>
+                        <p>A Lori no le caÌa bien Rick :( </p>
 					</section>
 					<section>
-						<h3>Soluci√≥n</h3>
+						<h3>SoluciÛn</h3>
 						<ul>
 							<li>Uso de librerias para intentar mitigar los ataques CSRF</li>
 							<li>Ejemplo: <a href="https://github.com/esheri3/OWASP-CSRFGuard">OWASP CSRFGuard 3.0 </a></li>
-					
+
 						</ul>
 					</section>
 				</section>
 
-					<!-- Se seguir√≠an poniendo diapositivas aqu√≠
-					Para m√°s ejemplos mirar el repositorio reveal.js en github -->
-					<!-- La estructura no es fija en cuanto a apartados se pueden variar, adem√°s habr√≠a que poner alguna demostraci√≥n para rellenar tiempo -->
-				
+					<!-- Se seguirÌan poniendo diapositivas aquÌ
+					Para m·s ejemplos mirar el repositorio reveal.js en github -->
+					<!-- La estructura no es fija en cuanto a apartados se pueden variar, adem·s habrÌa que poner alguna demostraciÛn para rellenar tiempo -->
+
 				<section>
 					<h1>Fin</h1>
-					<h2>Gracias por su atenci√≥n</h2>
+					<h2>Gracias por su atenciÛn</h2>
 					<img src="images/security_man.gif" alt="animacion agente seguridad">
 				</section>
 			</div>
