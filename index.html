@@ -109,9 +109,9 @@
 						</section>
 						<section>
 						<h3>Ataques mas serios</h3>
-						<p>El HTMLi no solo sirve para cambiar el entorno visual de la página
-						ya que podemos introducir scripts y demás, en una peticion POST, por ejemplo.</p>
-						<img src="images/htmlI3.png" alt="Vista de exito de inyeccion"/>
+						<p>¿Que pasaría si introdujeramos mil veces  &lt;br /&gt; ?</p>
+                        <p> <img src="images/meta.png" alt="Código Meta"/></p>
+                        <p>También podemos introducir scripts tal como veremos en la siguiente sección</p>
 						</section>
 						<section>
 						<h3>Soluciones</h3>
@@ -225,7 +225,7 @@
 					</section>
 					<section>
 						<h3>Resultado</h3>
-						<p>El Administrador, un poco ingenuo, hace click en la imagen. Pero... ¡No es oro todo lo que reluce! </p>
+						<p>El Administrador, un poco ingénuo, hace click en la imagen. Pero... ¡No es oro todo lo que reluce! </p>
 						<img src="images/CSRF2.png" alt="CSRF"/>
 					</section>
 					<section>
@@ -256,15 +256,23 @@
 							<li>java.util.logging</li>
 						</ul>
 					</section>
+                    <section> 
+						<h3>Validar campos de los formularios</h3>
+						<p> Es una buena práctica con la que evitaremos posibles futuros errores y agujeros de seguridad. </p>
+					</section>
 					<section>
 						<h3>Quitar mensajes de error informativos</h3>
 						<p> No se debe mostrar más información de la necesaria, por lo tanto los errores descriptivos no deberían ser mostrados al usuario </p>
 						<img src="images/errorDescriptivo.png" alt="Web con errores de sqlite" />
+                        <p> También tenemos que tener especial cuidado con los comentarios en el código. </p>
+
 					</section>
 					<section>
 						<h3>Quitar u ocultar archivos que no deberían ser accedidos</h3>
 						<p> Archivos como configuraciones de la base de datos, logs u otros archivos de configuración no deberían poder ser accedidos
 						para ello se deben sacar fuera del directorio de la web u ocultarlos. </p>
+                        </br>
+                        <p> También podemos configurar el servidor para servir solo algunos tipos de fichero. En el caso del foro, con ficheros HTML e imágenes, debería ser suficiente.  </p>
 					</section>
 					<section>
 						<h3>Ocultación de rutas privadas</h3>
@@ -273,6 +281,11 @@
                         	Robots.txt EpiGijón</a> </p>
                        	<br />
                         <p class="fragment roll-in visible" style="color: red">¡CUIDADO! Esto no hace que no se pueda entrar, por lo tanto no nos exime de tomar medidas de seguridad complementarias</p>
+					</section>
+                    <section>
+						<h3>Vigilar JSP</h3>
+						<p>Debemos tener en cuenta las vulnerabilidades que puedan existir en JSP. Hay que estar al tanto de nuevos exploits y tener siempre actualizado el sistema</p>
+                    
 					</section>
 				</section>
 
